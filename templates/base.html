@@ -1,14 +1,14 @@
+<!-- templates/base.html -->
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Claims</title>
-    </head>
-    <body>
-        <div>
-            {% block content %}
-            {% endblock %}
-        </div>
-    </body>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Claims App{% endblock %}</title>
+</head>
+<body>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
 </html>

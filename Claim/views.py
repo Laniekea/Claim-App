@@ -5,8 +5,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 from .models import User
 
-def index(request):
-    return render(request, 'index.html')
+def home(request):
+    return render(request, 'home.html')
+
+def add_claim(request):
+    return render(request, 'add_claim.html')
 
 def signup_view(request):
     if request.method == 'POST':
@@ -14,17 +17,9 @@ def signup_view(request):
         if form.is_valid():
             form.save()
             # allow log in
-            return redirect('index')
+            return redirect("home")
 
     else: 
         form = UserCreationForm()
     
     return render(request, 'signup.html', {'form': form})
-
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm
-    else:
-        form = AuthenticationForm()
-
-    return render(request, 'login.html', {'form': form})

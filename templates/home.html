@@ -1,0 +1,17 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block title %}XYZ Insurance{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+  Hi {{ user.username }}!
+  <p>Welcome to XYZ Insurance Claim Site</p>
+  <p><a >Claim Insurance</a></p>
+  <p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
