@@ -8,8 +8,7 @@ app_name = 'claim'
 
 urlpatterns = [
 
-    # path('signup', views.signup_view, name="signup"),
-    # path('login', views.login_view, name="login"),
+    path('signup', views.signup, name="signup"),
     path('', views.home, name="home"),
     path('add', views.add_claim, name="add_claim"),
     
