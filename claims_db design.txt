@@ -1,0 +1,31 @@
+Users table:
+id (pk) auto++
+name - varchar(255)
+email - varchar(255)
+mobile - varchar(255)
+
+Vehicle table:
+id (pk) auto++
+userid (fk)
+vehiclemodel - varchar(255)
+platenumber - varchar(255)
+
+Loss:
+id (pk) auto++
+userid (fk)
+datetime - datetime
+losstypeid - int (1,2,3,4)
+description - varchar 255
+lodgestatus - boolean
+injuredstatus - boolean
+
+lookuplosstype
+id (pk) fk - losstypeid
+typenam - varchar(255) 
+
+Document:
+id (pk) auto++
+photourl - varchar
+pdfurl - varchar
+
+
