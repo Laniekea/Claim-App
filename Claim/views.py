@@ -1,7 +1,11 @@
-from django.shortcuts import redirect, render
+from django.db.models.base import Model
+import Claim
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse, Http404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+
+from .models import Claim
 
 def home(request):
     return render(request, 'home.html')
@@ -24,3 +28,7 @@ def signup(request):
         form = UserCreationForm()
     
     return render(request, 'signup.html', {'form': form})
+
+def detail(request, user_id):
+    claim = Claim.objects.filter(user_id = user_id)
+    return render(request, 'detail.html', {'claim': claim})

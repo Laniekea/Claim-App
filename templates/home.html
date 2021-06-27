@@ -1,18 +1,18 @@
 <!-- templates/home.html-->
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+{% block title %}XYZ Insurance{% endblock %} 
+{% block content %} 
+{% if user.is_authenticated %} 
+Hi {{ user.username }}!
+<p>Welcome to XYZ Insurance Claim Site</p>
+<ul>
+  <li><a href="{% url 'claim:detail' user.id %}">View Insurance Claims</a></li>
+  <li href="{% url 'claim:add_claim' %}">Add New Insurance Claim</li>
+</ul>
 
-{% block title %}XYZ Insurance{% endblock %}
-
-{% block content %}
-{% if user.is_authenticated %}
-
-  Hi {{ user.username }}!
-  <p>Welcome to XYZ Insurance Claim Site</p>
-  <p><a >Claim Insurance</a></p>
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
+<p><a href="{% url 'logout' %}">Log Out</a></p>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
-  <a href="{% url 'claim:signup' %}">Sign Up</a>
-{% endif %}
-{% endblock %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a>
+<a href="{% url 'claim:signup' %}">Sign Up</a>
+{% endif %} {% endblock %}
