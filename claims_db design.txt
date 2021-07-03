@@ -14,6 +14,7 @@ Loss:
 id (pk) auto++
 userid (fk)
 datetime - datetime
+location - varchar 255
 losstypeid - int (1,2,3,4)
 description - varchar 255
 lodgestatus - boolean

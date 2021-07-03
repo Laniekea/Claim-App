@@ -3,15 +3,6 @@ from django.db import models
 from django.conf import settings
 from django.contrib import auth 
 
-# class User(models.Model):
-#     id = models.AutoField(primary_key="true")
-#     name = models.CharField(max_length=200)
-#     email = models.EmailField(max_length=254)
-#     mobile = models.CharField(max_length=100)
-
-#     def __str__(self):
-#         return self.name
-
 class Vehicle(models.Model):
     id = models.AutoField(primary_key="true")
     vehicle_model = models.CharField(max_length=200)

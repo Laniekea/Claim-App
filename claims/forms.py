@@ -18,3 +18,11 @@ class NewUserForm(UserCreationForm):
 		if commit:
 			user.save()
 		return user
+
+class AddClaimForm(forms.Form):
+	username = forms.CharField(label="name", max_length=200)
+	email = forms.CharField(label="email", max_length=200)
+	mobile = forms.CharField(label="mobile", max_length=100)
+
+	
+	

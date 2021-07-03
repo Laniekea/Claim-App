@@ -1,3 +1,4 @@
+from claims.forms import AddClaimForm
 from django.db.models.base import Model
 import Claim
 from django.shortcuts import get_object_or_404, redirect, render
@@ -11,7 +12,16 @@ def home(request):
     return render(request, 'home.html')
 
 def add_claim(request):
-    return render(request, 'add_claim.html')
+    if request.method == "POST":
+        form = AddClaimForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            mobile = form.cleaned_data['mobile']
+
+            print(username, email, mobile)
+
+    return render(request, 'add_claim.html', {'form' : form})
 
 def signup(request):
     if request.method == 'POST':

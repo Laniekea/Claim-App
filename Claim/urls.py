@@ -10,7 +10,7 @@ urlpatterns = [
 
     path('signup', views.signup, name="signup"),
     path('', views.home, name="home"),
-    path('<int:user_id>/', views.detail, name="detail"),
-    path('add', views.add_claim, name="add_claim"),
+    path('claims/<int:user_id>/', views.detail, name="detail"),
+    path('claims/add', views.add_claim, name="add_claim"),
     
 ]

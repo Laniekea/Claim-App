@@ -1,17 +1,18 @@
 <!-- templates/add_claim.html-->
 {% extends 'base.html' %} {% block title %}Add New Insurance Claim{% endblock %}
 {% block content %} {% if user.is_authenticated %} Hi {{ user.username }}!
-<form action="/add" method="POST">
+<form action="claim:claims/add" method="POST">
   <h3>Basic Insured and Driver Details</h3>
   <label for="name">Name</label>
-  <input id="name" type="text" name="name" value="{{ your name }}" />
+  <input id="name" type="text" name="name" value="{{ name }}" />
   <label for="email">Email</label>
-  <input id="email" type="text" name="email" value="{{ your email }}" />
+  <input id="email" type="text" name="email" value="{{ email }}" />
   <label for="mobile">Mobile No.</label>
-  <input id="mobile" type="text" name="mobile" value="{{ your mobile number }}" />
-
+  <input id="mobile" type="text" name="mobile" value="{{ mobile }}" />
+  <input type="submit" name="btn" value="OK" />
   {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">Log In</a>
-  {% endif %} {% endblock %}
+  {% endif %} 
 </form>
+{% endblock %}
